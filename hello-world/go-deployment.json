@@ -1,0 +1,34 @@
+{
+  "apiVersion": "extensions/v1beta1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "go-deployment",
+    "namespace": "dev"
+  },
+  "spec": {
+    "replicas": 2,
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "go",
+          "tier": "backend",
+          "track": "stable"
+        }
+      },
+      "spec": {
+        "containers": [ 
+          {
+            "name": "go",
+            "image": "gcr.io/firsttry-178217/go-circleci-docker-kube",
+            "imagePullPolicy": "Always",
+            "ports": [
+              {
+                "containerPort": 9090
+              }
+            ]
+          } 
+        ]
+      }
+    }
+  }
+}
