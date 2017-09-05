@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-string
+spec:
+  selector:
+    app: svc-string
+    tier: backend
+  ports:
+  - protocol: "TCP"
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: svc-string
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: svc-string
+        tier: backend
+        track: stable
+    spec:
+      containers:
+      - name: svc-string
+        image: "gcr.io/firsttry-178217/try-go-kit/svc-string:latest"
