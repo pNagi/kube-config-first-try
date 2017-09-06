@@ -14,4 +14,5 @@
 - `minikube stop`
 - `minikube dashboard`
 - `kubectl apply -f file.yml`
+- `kubectl apply -f file.json`
 
