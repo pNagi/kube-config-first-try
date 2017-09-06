@@ -19,7 +19,8 @@
         "containers": [
           {
             "name": "go",
-            "image": "gcr.io/firsttry-178217/go-circleci-docker-kube",
+            "image": "gcr.io/firsttry-178217/go-circleci-docker-kube:latest",
+            "imagePullPolicy": "Always",
             "ports": [
               {
                 "containerPort": 9090

@@ -27,3 +27,4 @@ spec:
       containers:
       - name: svc-string
         image: "gcr.io/firsttry-178217/try-go-kit/svc-string:latest"
+        imagePullPolicy: Always

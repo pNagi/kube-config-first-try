@@ -34,3 +34,4 @@ spec:
       containers:
       - name: svc-add
         image: "gcr.io/firsttry-178217/try-go-kit/svc-add:latest"
+        imagePullPolicy: Always
