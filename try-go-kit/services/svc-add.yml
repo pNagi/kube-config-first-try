@@ -1,10 +1,17 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: add-config
+data:
+  port: "8080"
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-string
+  name: add
 spec:
   selector:
-    app: svc-string
+    app: add
     tier: backend
   ports:
   - protocol: "TCP"
@@ -14,17 +21,17 @@ spec:
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: svc-string
+  name: add
 spec:
   replicas: 2
   template:
     metadata:
       labels:
-        app: svc-string
+        app: add
         tier: backend
         track: stable
     spec:
       containers:
-      - name: svc-string
-        image: "gcr.io/firsttry-178217/try-go-kit/svc-string:latest"
+      - name: add
+        image: "gcr.io/firsttry-178217/try-go-kit/services/add:latest"
         imagePullPolicy: Always
