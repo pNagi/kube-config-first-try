@@ -35,3 +35,4 @@ spec:
       - name: add
         image: "gcr.io/firsttry-178217/try-go-kit/services/add:latest"
         imagePullPolicy: Always
+        revisionHistoryLimit: 5
