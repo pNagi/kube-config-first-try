@@ -17,6 +17,7 @@ metadata:
   name: string
 spec:
   replicas: 2
+  revisionHistoryLimit: 5
   template:
     metadata:
       labels:
@@ -28,4 +29,3 @@ spec:
       - name: string
         image: "gcr.io/firsttry-178217/try-go-kit/services/string:latest"
         imagePullPolicy: Always
-        revisionHistoryLimit: 5
