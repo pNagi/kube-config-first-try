@@ -1,18 +1,34 @@
 # kube-config-first-try
 
-## Installation
-- gcloud-sdk
-  - [OSX](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-169.0.0-darwin-x86_64.tar.gz)
-  - [Win](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe)
-  - [Linux](https://cloud.google.com/sdk/)
-- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#download-as-part-of-the-google-cloud-sdk) `gcloud components install kubectl`
-- A Hypervisor for Minikube ([virtualbox](https://www.virtualbox.org/))
-- [Minikube](https://github.com/kubernetes/minikube/releases)
+## Preliquisites
 
-## Commands
-- `minikube start`
-- `minikube stop`
-- `minikube dashboard`
-- `kubectl apply -f file.yml`
-- `kubectl apply -f file.json`
+### Install google cloud SDK
 
+https://cloud.google.com/sdk/downloads
+
+### Install kubectl
+```sh
+gcloud components install kubectl
+```
+
+### Install minikube
+
+https://github.com/kubernetes/minikube/
+
+## Set up
+
+Create context with development and production environment
+```sh
+kubectl config set-context dev --namespace=development --cluster=minikube --user=minikube
+kubectl config set-context prod --namespace=production --cluster=minikube --user=minikube
+```
+
+You can see all contexts you have by
+```sh
+kubectl config get-contexts
+```
+
+Now you can switch by
+```sh
+kubectl config use-context <dev | prod>
+```
