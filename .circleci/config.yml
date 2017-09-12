@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  lint:
+    docker:
+      - image: node
+    steps:
+      - checkout
+      - run: npm install
+      - run: node lint
+workflows:
+  version: 2
+  flow:
+    jobs:
+      - lint
